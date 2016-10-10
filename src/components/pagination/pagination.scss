@@ -1,0 +1,17 @@
+ul.pagination {
+
+  span {
+    min-width: 100px;
+    text-align: center;
+  }
+
+  a {
+    cursor: pointer;
+  }
+
+  .disabled {
+    cursor: not-allowed !important;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+}

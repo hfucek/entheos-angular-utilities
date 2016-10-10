@@ -1,0 +1,84 @@
+<div class="table-list table-responsive">
+  <table class="table table-striped table-hover table-bordered">
+    <thead>
+      <tr class="filter-tr">
+        <th ng-repeat="config in $ctrl.config.columns track by config.field">
+          <i  class="fa fa-filter fa-fw fa-lg"
+              ng-if="config.filter && !config.filter.displayOnly"
+              ng-class="{
+                active: $ctrl.filters[config.filter.field].active,
+                inactive: !$ctrl.filters[config.filter.field].active
+              }"
+              uib-tooltip="Filtra per {{ config.label }}"
+              ng-click="::$ctrl.openFiltersPanel({ field: config.filter.field })">
+          </i>
+          <i  class="fa fa-filter fa-fw fa-lg"
+              ng-if="config.filter && config.filter.displayOnly"
+              ng-class="{
+                active: $ctrl.filters[config.filter.field].active,
+                inactive: !$ctrl.filters[config.filter.field].active
+              }">
+          </i>
+          {{ config.label }}
+          <i class="fa fa-fw fa-lg"
+             ng-if="config.sort"
+             ng-class="{
+                'fa-sort-asc': $ctrl.sort.field === config.sort.field &&
+                               $ctrl.sort.direction === 'ASC',
+                'fa-sort-desc': $ctrl.sort.field === config.sort.field &&
+                                $ctrl.sort.direction === 'DESC',
+                'fa-sort': $ctrl.sort.field !== config.sort.field,
+                active: $ctrl.sort.field === config.sort.field,
+                inactive: $ctrl.sort.field !== config.sort.field
+              }"
+              uib-tooltip="Ordina per {{ config.label }}"
+              ng-click="::$ctrl.onSort({ field: config.sort.field })">
+          </i>
+        </th>
+        <th ng-if="$ctrl.config.actions.length">
+          Azioni
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="row in $ctrl.data track by row.id">
+        <td ng-repeat="rc in $ctrl.config.columns track by rc.field" ng-class="rc.class">
+          <span ng-if="$ctrl.isFunction(rc.field)" bind-html-compile="rc.field(row)"></span>
+          <span ng-if="$ctrl.isString(rc.field)">{{ $ctrl.parseField(row, rc.field) }}</span>
+        </td>
+        <td class="actions"
+            ng-if="$ctrl.config.actions.length"
+            style="min-width: {{ $ctrl.config.actions.length * 25.98 + 16 + 2 }}px;">
+
+          <span ng-repeat="action in $ctrl.config.actions">
+            <span ng-if="action.component"
+                  ng-hide="::action.hide(row)"
+                  uib-tooltip="{{ action.label }}"
+                  bind-html-compile="action.component">
+            </span>
+            <button ng-if="!action.component"
+                    class="btn btn-link"
+                    ng-hide="::action.hide(row)"
+                    ng-click="::$ctrl.onAction({
+                      action: action.action,
+                      value: row
+                    })"
+                    uib-tooltip="{{ action.label }}">
+              <i ng-class="action.class" class="fa fa-fw fa-lg"></i>
+            </button>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot ng-if="$ctrl.config.footer && $ctrl.config.footer.length">
+      <tr class="footer-tr">
+        <td ng-repeat="foot in $ctrl.config.footer track by foot.field"
+            ng-class="foot.class"
+            colspan="{{ foot.colspan || 1 }}">
+          <span ng-if="$ctrl.isFunction(foot.field)" bind-html-compile="foot.field($ctrl.data)"></span>
+          <span ng-if="$ctrl.isString(foot.field)" bind-html-compile="foot.field"></span>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

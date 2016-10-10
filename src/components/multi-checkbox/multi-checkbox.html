@@ -1,0 +1,12 @@
+<div class="radio-group">
+  <div ng-repeat="(key, option) in $ctrl.to.options" class="checkbox">
+    <label>
+      <input formly-focus="{{ key === 0 && $ctrl.to.focus }}"
+             id="{{ $ctrl.id + '_'+ $index }}"
+             ng-model="$ctrl.checkboxes[$index]"
+             ng-change="$ctrl.updateModel($index)"
+             type="checkbox">
+      {{ option[$ctrl.to.labelProp || 'name'] }}
+    </label>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="panel panel-{{ $ctrl.panelColor }}">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-xs-3">
+        <i class="fa fa-{{ $ctrl.icon }} fa-5x"></i>
+      </div>
+      <div class="col-xs-9 text-right">
+        <div class="huge">
+          <span ng-if="$ctrl.isLoading">
+            <i class="fa fa-spinner fa-pulse"></i>
+          </span>
+          <span ng-if="!$ctrl.isLoading"
+                class="pointer"
+                ng-class="{ blurred: $ctrl.privacy }"
+                ng-click="$ctrl.privacy = !$ctrl.privacy"
+                uib-tooltip="{{
+                  $ctrl.privacy ?
+                    'Disabilita filtro privacy' :
+                    'Abilita filtro privacy'
+                }}">
+            {{ $ctrl.value }}
+          </span>
+        </div>
+        <div>
+          <i class="fa fa-eye-slash" ng-if="$ctrl.privacy"></i>
+          <i class="fa fa-eye" ng-if="!$ctrl.privacy"></i>
+           {{ $ctrl.text }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="{{ $ctrl.link.url }}">
+    <div class="panel-footer">
+      <span class="pull-left">{{ $ctrl.link.text }}</span>
+      <span class="pull-right">
+        <i class="fa fa-{{ $ctrl.link.icon }}"></i>
+      </span>
+      <div class="clearfix"></div>
+    </div>
+  </a>
+</div>

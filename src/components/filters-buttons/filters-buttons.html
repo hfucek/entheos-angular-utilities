@@ -1,0 +1,13 @@
+<div class='btn-toolbar'>
+  <button class="btn btn-default btn-add-xs" uib-tooltip="Aggiorna dati" tooltip-placement="left" ng-click="$ctrl.onRefresh()">
+    <i class="fa fa-refresh"></i>
+  </button>
+  <div class='btn-group'>
+    <button class="btn btn-info btn-add-xs" ng-click="$ctrl.openFiltersPanel()">
+      <i class="fa fa-filter"></i> Pannello filtri
+    </button>
+    <button class="btn btn-danger btn-add-xs" ng-disabled="!$ctrl.hasActiveFilters" ng-click="$ctrl.onReset()">
+      <i class="fa fa-times"></i> Resetta filtri
+    </button>
+  </div>
+</div>

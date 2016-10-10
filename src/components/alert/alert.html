@@ -1,0 +1,5 @@
+<div uib-alert ng-class="'alert-' + ($ctrl.type || 'danger')"
+     close="$ctrl.closeAlert()"
+     ng-if="$ctrl.isShown">
+  <pre>{{ $ctrl.message | json }}</pre>
+</div>

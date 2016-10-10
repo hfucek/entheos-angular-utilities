@@ -1,0 +1,9 @@
+.intralink:hover {
+  text-decoration: none;
+}
+
+.intralink.intralink-icon::after {
+  content: '\f08e';
+  font: normal normal normal 10px/1 FontAwesome;
+  padding-left: 4px;
+}

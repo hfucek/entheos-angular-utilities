@@ -1,0 +1,38 @@
+<uib-accordion close-others="false" class="ew-accordions">
+  <div class="row">
+    <div class="col-lg-6">
+      <div uib-accordion-group
+        class="panel-primary"
+        ng-repeat="accordion in $ctrl.data.left"
+        is-open="accordion.open">
+        <uib-accordion-heading>
+          {{ accordion.heading }}
+          <i class="pull-right fa"
+            ng-class="{
+              'fa-angle-down': status.open,
+              'fa-angle-right': !status.open
+            }">
+          </i>
+        </uib-accordion-heading>
+        <div ng-bind-html="accordion.body"></div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div uib-accordion-group
+        class="panel-primary"
+        ng-repeat="accordion in $ctrl.data.right"
+        is-open="accordion.open">
+        <uib-accordion-heading>
+          {{ accordion.heading }}
+          <i class="pull-right fa"
+            ng-class="{
+              'fa-angle-down': status.open,
+              'fa-angle-right': !status.open
+            }">
+          </i>
+        </uib-accordion-heading>
+        <div ng-bind-html="accordion.body"></div>
+      </div>
+    </div>
+  </div>
+</uib-accordion>

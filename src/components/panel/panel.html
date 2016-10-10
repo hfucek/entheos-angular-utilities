@@ -1,0 +1,11 @@
+<div class="ibox ibox-{{ $ctrl.panelStyle || 'solid' }} ibox-{{ $ctrl.color || 'grey' }}">
+  <div class="ibox-title">
+    <h5>
+      <span ng-if="$ctrl.icon"><i class="fa fa-{{ $ctrl.icon }}" fixedWidth="true" ng-if="$ctrl.icon"></i> </span>
+      <span ng-transclude="titleSlot"></span>
+    </h5>
+  </div>
+  <div class="ibox-content">
+    <div ng-transclude="bodySlot"></div>
+  </div>
+</div>

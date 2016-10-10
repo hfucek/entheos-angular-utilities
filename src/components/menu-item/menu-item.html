@@ -1,0 +1,32 @@
+<div ng-if="!$ctrl.item.submenu"
+     ng-class="{ active: $ctrl.$state.is($ctrl.item.state) }"
+     ng-click="$ctrl.collapseOnClick()">
+  <a ui-sref="{{ $ctrl.item.state }}" ui-sref-opts="{{ $ctrl.item.opts }}">
+    <i class="fa fa-{{ $ctrl.item.icon }}"></i> {{ $ctrl.item.title }}
+  </a>
+</div>
+
+<div ng-if="$ctrl.item.submenu"
+     class="btn-group"
+     uib-dropdown
+     is-open="status.isopen"
+     ng-mouseover="status.isopen = true"
+     ng-mouseleave="status.isopen = false">
+
+  <a ng-if="!$ctrl.item.state"
+     href=""
+     ng-disabled="disabled">
+    <i class="fa fa-{{ $ctrl.item.icon }}"></i> {{ $ctrl.item.title }} <i class="fa fa-caret-down"></i>
+  </a>
+
+  <a ng-if="$ctrl.item.state"
+     ui-sref="{{ $ctrl.item.state }}"
+     ui-sref-opts="{{ $ctrl.item.opts }}"
+     ng-disabled="disabled">
+    <i class="fa fa-{{ $ctrl.item.icon }}"></i> {{ $ctrl.item.title }} <i class="fa fa-caret-down"></i>
+  </a>
+
+  <ul class="dropdown-menu" uib-dropdown-menu role="menu">
+    <menu-item ng-repeat="submenuItem in $ctrl.item.submenu" item="submenuItem"></menu-item>
+  </ul>
+</div>

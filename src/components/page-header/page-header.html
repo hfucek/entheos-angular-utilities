@@ -1,0 +1,26 @@
+<div class='page-header'>
+  <div class="row">
+    <div class="col-lg-8">
+      <h1>
+        {{ $ctrl.title }}
+        <button
+          ng-if="$ctrl.helpButton"
+          uib-popover="{{ $ctrl.helpButton.text }}"
+          popover-trigger="'{{ $ctrl.helpButton.trigger || 'mouseenter' }}'"
+          popover-placement="{{ $ctrl.helpButton.placement || 'bottom' }}"
+          type="button"
+          class="btn btn-link">
+          <i class="fa fa-question-circle fa-lg"></i>
+        </button>
+        <a ng-if="$ctrl.addButton"
+          class="btn btn-default btn-add-xs"
+          ng-click="$ctrl.onAction({ action: $ctrl.addButton.action })">
+          <i class="fa {{ $ctrl.addButton.icon || 'fa-plus' }}"></i>
+          {{ $ctrl.addButton.label || 'Aggiungi' }}
+        </a>
+      </h1>
+    </div>
+    <div class="col-lg-4" ng-transclude="next"></div>
+  </div>
+  <div class="under-title row" ng-transclude="under"></div>
+</div>
