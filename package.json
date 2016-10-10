@@ -1,6 +1,6 @@
 {
   "name": "entheos-angular-utilities",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A superset of utilities for Angular apps.",
   "license": "MIT",
   "keywords": [
@@ -23,21 +23,15 @@
     "build:umd.min": "webpack --output-filename index.umd.min.js -p",
     "clean": "rimraf dist && mkdir dist",
     "cover": "istanbul report --include=**/chrome/coverage-final.json text text-summary",
-    "dev:client": "cross-env NODE_ENV=development webpack-dashboard -p 3001 -- webpack-dev-server -d --inline --no-info",
-    "dev": "npm run dev:client",
-    "docs": "rimraf docs/ && gulp docs && http-server docs",
     "lint": "npm run lint-ts && npm run lint-js && npm run lint-css",
     "lint-ts": "tslint './src/**/*.ts'",
     "lint-js": "eslint '**/*.js' --ignore-path .gitignore",
     "lint-css": "stylelint './src/**/*.css' './src/**/*.scss'",
-    "postinstall": "npm run typings && npm run build",
-    "start": "cross-env NODE_ENV=production node server/node-server.js",
     "pretest": "rimraf coverage/ && npm run lint",
     "test": "karma start --singleRun true",
     "posttest": "npm run cover",
     "test:watch": "karma start --singleRun false",
-    "typings": "rimraf typings/ && typings install",
-    "component": "gulp component"
+    "typings": "rimraf typings/ && typings install"
   },
   "repository": {
     "type": "git",
