@@ -1,39 +1,42 @@
-.filter-panel {
-  background-color: #fff;
-  box-shadow: 2px 0 10px 0 rgba(0, 0, 0, 0.5);
-  height: 100%;
-  left: 0;
-  overflow: scroll;
-  padding: 0 20px;
-  position: fixed;
-  top: 0;
-  z-index: 9999;
+ew-filters-sidebar {
 
-  .active,
-  .inactive {
-    float: left;
-    margin-right: 2px;
-    margin-top: 3px;
+  .filter-panel {
+    background-color: #fff;
+    box-shadow: 2px 0 10px 0 rgba(0, 0, 0, 0.5);
+    height: 100%;
+    left: 0;
+    overflow: scroll;
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+
+    .active,
+    .inactive {
+      float: left;
+      margin-right: 2px;
+      margin-top: 3px;
+    }
+
+    .active {
+      color: green;
+    }
+
+    .inactive {
+      color: lightgrey;
+    }
   }
 
-  .active {
-    color: green;
+  .overlay-panel {
+    background-color: black;
+    filter: alpha(opacity=60); /* For IE8 and earlier */
+    height: 100%;
+    opacity: 0.6;
+    overflow: scroll;
+    padding: 0 20px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 9999;
   }
-
-  .inactive {
-    color: lightgrey;
-  }
-}
-
-.overlay-panel {
-  background-color: black;
-  filter: alpha(opacity=60); /* For IE8 and earlier */
-  height: 100%;
-  opacity: 0.6;
-  overflow: scroll;
-  padding: 0 20px;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 9999;
 }

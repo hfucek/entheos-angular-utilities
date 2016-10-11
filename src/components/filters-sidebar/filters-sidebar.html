@@ -1,15 +1,17 @@
-<div ng-if="$ctrl.isOpen"
-     class="col-md-4 col-sm-6 col-xs-10 filter-panel">
-  <h3><i class="fa fa-filter"></i> Filtri</h3>
-  <form ng-submit="$ctrl.onSearch({ data: $ctrl.model })" name="$ctrl.form" novalidate>
-    <formly-form model="$ctrl.model" fields="$ctrl.fields"></formly-form>
-    <div class="text-right">
-      <button type="button" class="btn btn-danger" ng-click="$ctrl.onReset()">Resetta filtri</button>
-      <button type="submit" class="btn btn-success submit-button" ng-disabled="$ctrl.form.$invalid">Cerca</button>
-    </div>
-  </form>
-</div>
-<div ng-if="$ctrl.isOpen"
-     ng-click="$ctrl.onClose()"
-     class="col-md-8 col-sm-6 col-xs-2 overlay-panel">
+<div class="row">
+  <div ng-if="$ctrl.isOpen"
+      class="col-md-4 col-sm-6 col-xs-10 filter-panel">
+    <h3><i class="fa fa-filter"></i> Filtri</h3>
+    <form ng-submit="$ctrl.onSearch({ data: $ctrl.model })" name="$ctrl.form" novalidate>
+      <formly-form model="$ctrl.model" fields="$ctrl.fields"></formly-form>
+      <div class="text-right">
+        <button type="button" class="btn btn-danger" ng-click="$ctrl.onReset()">Resetta filtri</button>
+        <button type="submit" class="btn btn-success submit-button" ng-disabled="$ctrl.form.$invalid">Cerca</button>
+      </div>
+    </form>
+  </div>
+  <div ng-if="$ctrl.isOpen"
+      ng-click="$ctrl.onClose()"
+      class="col-md-8 col-sm-6 col-xs-2 overlay-panel">
+  </div>
 </div>
