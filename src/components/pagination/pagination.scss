@@ -1,17 +1,19 @@
-ul.pagination {
+ew-pagination {
+  ul.pagination {
 
-  span {
-    min-width: 100px;
-    text-align: center;
-  }
+    span {
+      min-width: 100px;
+      text-align: center;
+    }
 
-  a {
-    cursor: pointer;
-  }
+    a {
+      cursor: pointer;
+    }
 
-  .disabled {
-    cursor: not-allowed !important;
-    opacity: 0.6;
-    pointer-events: none;
+    .disabled {
+      cursor: not-allowed !important;
+      opacity: 0.6;
+      pointer-events: none;
+    }
   }
 }
