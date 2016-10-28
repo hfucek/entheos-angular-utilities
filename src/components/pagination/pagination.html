@@ -1,44 +1,42 @@
-<div class="row">
-  <div class="col-sm-6 pagination">
-    <p>{{ $ctrl.pagination.get('count', 0) }}
-      {{ $ctrl.pagination.get('count', 0) === 1 ? 'risultato totale' :
-                                                'risultati totali'}}</p>
-  </div>
-  <div class="col-sm-6">
-    <nav>
-      <ul class="pagination">
-        <li>
-          <a
-            ng-click="$ctrl.changePage({ page: 1 })"
-            ng-class="{ disabled: $ctrl.page <= 1 }">
-            Prima
-          </a>
-        </li>
-        <li>
-          <a
-            ng-click="$ctrl.changePage({ page: $ctrl.page - 1 })"
-            ng-class="{ disabled: $ctrl.page <= 1 }">
-            &lt;
-          </a>
-        </li>
-        <li>
-          <span>{{ $ctrl.page }} di {{ $ctrl.pagination.get('page_count', 0) }}</span>
-        </li>
-        <li>
-          <a
-            ng-click="$ctrl.changePage({ page: $ctrl.page + 1 })"
-            ng-class="{ disabled: $ctrl.page === $ctrl.pagination.get('page_count', 0) }">
-            &gt;
-          </a>
-        </li>
-        <li>
-          <a
-            ng-click="$ctrl.changePage({ page: $ctrl.pagination.get('page_count', 0) })"
-            ng-class="{ disabled: $ctrl.page === $ctrl.pagination.get('page_count', 0) }">
-            Ultima
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </div>
+<div class="text-center">
+  <p>
+    {{ $ctrl.pagination.get('count', 0) }}
+    {{ $ctrl.pagination.get('count', 0) === 1 ? 'risultato totale' :
+    'risultati totali'}}
+  </p>
+  <nav>
+    <ul class="pagination">
+      <li>
+        <a
+          ng-click="$ctrl.changePage({ page: 1 })"
+          ng-class="{ disabled: $ctrl.page <= 1 }">
+          Prima
+        </a>
+      </li>
+      <li>
+        <a
+          ng-click="$ctrl.changePage({ page: $ctrl.page - 1 })"
+          ng-class="{ disabled: $ctrl.page <= 1 }">
+          &lt;
+        </a>
+      </li>
+      <li>
+        <span>{{ $ctrl.page }} di {{ $ctrl.pagination.get('page_count', 0) }}</span>
+      </li>
+      <li>
+        <a
+          ng-click="$ctrl.changePage({ page: $ctrl.page + 1 })"
+          ng-class="{ disabled: $ctrl.page === $ctrl.pagination.get('page_count', 0) }">
+          &gt;
+        </a>
+      </li>
+      <li>
+        <a
+          ng-click="$ctrl.changePage({ page: $ctrl.pagination.get('page_count', 0) })"
+          ng-class="{ disabled: $ctrl.page === $ctrl.pagination.get('page_count', 0) }">
+          Ultima
+        </a>
+      </li>
+    </ul>
+  </nav>
 </div>
