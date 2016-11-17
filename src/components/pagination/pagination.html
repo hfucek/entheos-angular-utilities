@@ -1,7 +1,7 @@
 <div class="text-center">
   <p>
-    {{ $ctrl.pagination.get('count', 0) }}
-    {{ $ctrl.pagination.get('count', 0) === 1 ? 'risultato totale' :
+    {{ $ctrl.pagination.count || 0 }}
+    {{ $ctrl.pagination.count === 1 ? 'risultato totale' :
     'risultati totali'}}
   </p>
   <nav>
@@ -21,19 +21,19 @@
         </a>
       </li>
       <li>
-        <span>{{ $ctrl.page }} di {{ $ctrl.pagination.get('page_count', 0) }}</span>
+        <span>{{ $ctrl.page }} di {{ $ctrl.pagination.page_count }}</span>
       </li>
       <li>
         <a
           ng-click="$ctrl.changePage({ page: $ctrl.page + 1 })"
-          ng-class="{ disabled: $ctrl.page === $ctrl.pagination.get('page_count', 0) }">
+          ng-class="{ disabled: $ctrl.page === $ctrl.pagination.page_count }">
           &gt;
         </a>
       </li>
       <li>
         <a
-          ng-click="$ctrl.changePage({ page: $ctrl.pagination.get('page_count', 0) })"
-          ng-class="{ disabled: $ctrl.page === $ctrl.pagination.get('page_count', 0) }">
+          ng-click="$ctrl.changePage({ page: $ctrl.pagination.page_count })"
+          ng-class="{ disabled: $ctrl.page === $ctrl.pagination.page_count }">
           Ultima
         </a>
       </li>

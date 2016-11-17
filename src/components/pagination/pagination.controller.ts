@@ -29,8 +29,7 @@ export class PaginationController implements IpaginationController {
 
   $onChanges(changesObj): void {
     if (changesObj.pagination) {
-      this.page = this.pagination.get('page_count', 0) ?
-        this.pagination.get('current_page', 0) : 0;
+      this.page = this.pagination.page_count ? this.pagination.current_page : 0;
     }
   }
 }
