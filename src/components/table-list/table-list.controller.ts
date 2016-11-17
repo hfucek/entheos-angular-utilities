@@ -7,6 +7,7 @@ interface ITableListBindings {
   onAction: Function;
   onSort: Function;
   openFiltersPanel: Function;
+  rowClickable: boolean;
   sort: any;
   title: string;
 }
@@ -30,6 +31,7 @@ export class TableListController implements ITableListController {
   onAction: Function;
   onSort: Function;
   openFiltersPanel: Function;
+  rowClickable: boolean;
   sort: any;
   title: string;
 

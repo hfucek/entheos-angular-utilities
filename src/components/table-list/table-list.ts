@@ -16,6 +16,7 @@ export class TableListComponent implements ng.IComponentOptions {
       onAction: '&',
       onSort: '&',
       openFiltersPanel: '&',
+      rowClickable: '<',
       sort: '<',
     };
     this.controller = TableListController;

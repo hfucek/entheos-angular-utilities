@@ -40,8 +40,13 @@ ew-table-list {
       background-color: #cfdee7;
     }
 
+    tr.row-clickable {
+      cursor: pointer;
+    }
+
     th,
     td.actions {
+      cursor: default;
       white-space: nowrap;
 
       .btn {

@@ -41,12 +41,17 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="row in $ctrl.data track by row.id">
+
+      <tr ng-if="!$ctrl.rowClickable"
+        ng-repeat="row in $ctrl.data track by row.id">
+
         <td ng-repeat="rc in $ctrl.config.columns track by rc.field" ng-class="rc.class">
           <span ng-if="$ctrl.isFunction(rc.field)" bind-html-compile="rc.field(row)"></span>
           <span ng-if="$ctrl.isString(rc.field)">{{ $ctrl.parseField(row, rc.field) }}</span>
         </td>
+
         <td class="actions"
+            ng-click="$event.stopPropagation()"
             ng-if="$ctrl.config.actions.length"
             style="min-width: {{ $ctrl.config.actions.length * 25.98 + 16 + 2 }}px;">
 
@@ -59,15 +64,46 @@
             <button ng-if="!action.component"
                     class="btn btn-link"
                     ng-hide="::action.hide(row)"
-                    ng-click="::$ctrl.onAction({
-                      action: action.action,
-                      value: row
-                    })"
+                    ng-click="::$ctrl.onAction({ action: action.action, value: row, $event })"
                     uib-tooltip="{{ action.label }}">
               <i ng-class="action.class" class="fa fa-fw fa-lg"></i>
             </button>
           </span>
         </td>
+
+      </tr>
+
+      <tr ng-if="$ctrl.rowClickable"
+        ng-class="{ 'row-clickable': $ctrl.rowClickable }"
+        ng-repeat="row in $ctrl.data track by row.id"
+        ng-click="::$ctrl.onAction({ action: 'row.click', value: row, $event })">
+
+        <td ng-repeat="rc in $ctrl.config.columns track by rc.field" ng-class="rc.class">
+          <span ng-if="$ctrl.isFunction(rc.field)" bind-html-compile="rc.field(row)"></span>
+          <span ng-if="$ctrl.isString(rc.field)">{{ $ctrl.parseField(row, rc.field) }}</span>
+        </td>
+
+        <td class="actions"
+            ng-click="$event.stopPropagation()"
+            ng-if="$ctrl.config.actions.length"
+            style="min-width: {{ $ctrl.config.actions.length * 25.98 + 16 + 2 }}px;">
+
+          <span ng-repeat="action in $ctrl.config.actions">
+            <span ng-if="action.component"
+                  ng-hide="::action.hide(row)"
+                  uib-tooltip="{{ action.label }}"
+                  bind-html-compile="action.component">
+            </span>
+            <button ng-if="!action.component"
+                    class="btn btn-link"
+                    ng-hide="::action.hide(row)"
+                    ng-click="::$ctrl.onAction({ action: action.action, value: row, $event })"
+                    uib-tooltip="{{ action.label }}">
+              <i ng-class="action.class" class="fa fa-fw fa-lg"></i>
+            </button>
+          </span>
+        </td>
+
       </tr>
     </tbody>
     <tfoot ng-if="$ctrl.config.footer && $ctrl.config.footer.length">
