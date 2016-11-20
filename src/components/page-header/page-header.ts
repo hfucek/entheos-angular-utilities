@@ -13,7 +13,7 @@ export class PageHeaderComponent implements ng.IComponentOptions {
       addButton: '<',
       helpButton: '<',
       onAction: '&',
-      title: '@',
+      headerTitle: '@',
     };
     this.controller = PageHeaderController;
     this.template = require('./page-header.html');

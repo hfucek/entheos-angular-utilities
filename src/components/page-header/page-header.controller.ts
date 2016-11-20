@@ -2,7 +2,7 @@ interface IpageHeaderBindings {
   addButton: any;
   helpButton: any;
   onAction: Function;
-  title: string;
+  headerTitle: string;
 }
 
 interface IpageHeaderController extends IpageHeaderBindings {
@@ -16,7 +16,7 @@ export class PageHeaderController implements IpageHeaderController {
   addButton: any;
   helpButton: any;
   onAction: Function;
-  title: string;
+  headerTitle: string;
 
   /**
    * Properties
