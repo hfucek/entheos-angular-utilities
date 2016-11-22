@@ -1,3 +1,5 @@
+import * as swal from 'sweetalert2';
+
 interface ISweetDialogBindings {
   action: Function;
   config: any;
@@ -29,8 +31,7 @@ export class SweetDialogController implements ISweetDialogController {
   sweetalert;
 
   constructor(
-    private $log: ng.ILogService,
-    private SweetAlert
+    private $log: ng.ILogService
   ) { }
 
   $onInit() {
@@ -63,7 +64,6 @@ export class SweetDialogController implements ISweetDialogController {
           showCancelButton: true,
           confirmButtonText: 'Conferma',
           cancelButtonText: 'Annulla',
-          closeOnConfirm: false,
           showLoaderOnConfirm: true
         }, this.config.sweetAlert)
       };
@@ -89,7 +89,6 @@ export class SweetDialogController implements ISweetDialogController {
           confirmButtonText: 'Conferma',
           confirmButtonColor: '#DD6B55',
           cancelButtonText: 'Annulla',
-          closeOnConfirm: false,
           showLoaderOnConfirm: true
         }, this.config.sweetAlert)
       };
@@ -99,35 +98,33 @@ export class SweetDialogController implements ISweetDialogController {
   onClick($event) {
     $event.preventDefault();
 
-    this.SweetAlert.swal(this.config.sweetAlert, (isConfirm) => {
-      if (isConfirm) {
+    swal(this.config.sweetAlert)
+      .then(() => {
         this.action({
           params: this.params
         })
           .then(() => {
-            this.SweetAlert.swal(
+            swal(
               this.config.successBox.title,
               this.config.successBox.message,
               'success');
           },
           error => {
             this.$log.error(error);
-            this.SweetAlert.swal(
+            swal(
               this.config.errorBox.title,
               this.config.errorBox.message,
               'error');
           });
-      } else {
-        this.SweetAlert.swal(
-          this.config.cancelBox.title,
-          this.config.cancelBox.message,
-          'error');
-      }
-    });
+      }, dismiss => {
+        // swal(
+        //   this.config.cancelBox.title,
+        //   this.config.cancelBox.message,
+        //   'error');
+      });
   }
 }
 
 SweetDialogController.$inject = [
   '$log',
-  'SweetAlert',
 ];

@@ -15,6 +15,7 @@ module.exports = {
 
   externals: {
     angular: 'angular',
+    sweetalert2: 'sweetalert2',
     lodash: 'lodash',
   },
 

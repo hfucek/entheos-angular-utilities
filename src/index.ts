@@ -1,6 +1,8 @@
 import * as angular from 'angular';
 import 'angular-bind-html-compile-ci-dev';
 
+import 'sweetalert2/dist/sweetalert2.css';
+
 import {
   accordionsModule,
   alertModule,

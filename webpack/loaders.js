@@ -31,4 +31,11 @@ exports.css = [
     loader: 'style!css!sass',
     exclude: /node_modules/,
   },
+  {
+    test: /\.css$/,
+    loader: 'style!css',
+    include: [
+      /node_modules\/sweetalert2/,
+    ],
+  },
 ];
