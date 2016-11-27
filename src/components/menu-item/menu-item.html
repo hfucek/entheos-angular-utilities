@@ -1,5 +1,5 @@
 <div ng-if="!$ctrl.item.submenu"
-     ng-class="{ active: $ctrl.$state.is($ctrl.item.state) }"
+     ng-class="{ active: $ctrl.isActive($ctrl.item.state) }"
      ng-click="$ctrl.collapseOnClick()">
   <a ui-sref="{{ $ctrl.item.state }}" ui-sref-opts="{{ $ctrl.item.opts }}">
     <i class="fa fa-{{ $ctrl.item.icon }}"></i> {{ $ctrl.item.title }}
