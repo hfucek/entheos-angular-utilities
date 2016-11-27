@@ -36,6 +36,11 @@ export class MenuItemController implements IMenuItemController {
       this.navCollapsed = !this.navCollapsed;
     }
   }
+
+  isActive(item) {
+    const current = String(this.$state.current.name);
+    return current.includes(item);
+  }
 }
 
 MenuItemController.$inject = [
