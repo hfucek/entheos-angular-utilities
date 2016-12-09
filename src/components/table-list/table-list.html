@@ -48,7 +48,9 @@
       <tr ng-if="!$ctrl.rowClickable"
         ng-repeat="row in $ctrl.data track by row.id">
 
-        <td ng-repeat="rc in $ctrl.config.columns track by rc.field" ng-class="rc.class">
+        <td ng-repeat="rc in $ctrl.config.columns track by rc.field"
+          ng-class="rc.class"
+          ng-if="::!rc.hide(row, $ctrl.extra)">
           <span ng-if="$ctrl.isFunction(rc.field)" bind-html-compile="rc.field(row)"></span>
           <span ng-if="$ctrl.isString(rc.field)">{{ $ctrl.parseField(row, rc.field) }}</span>
         </td>
@@ -60,13 +62,13 @@
 
           <span ng-repeat="action in $ctrl.config.actions">
             <span ng-if="action.component"
-                  ng-hide="::action.hide(row)"
+                  ng-if="::!action.hide(row, $ctrl.extra)"
                   uib-tooltip="{{ action.label }}"
                   bind-html-compile="action.component">
             </span>
             <button ng-if="!action.component"
                     class="btn btn-link"
-                    ng-hide="::action.hide(row)"
+                    ng-if="::!ction.hide(row, $ctrl.extra)"
                     ng-click="::$ctrl.onAction({ action: action.action, value: row, $event })"
                     uib-tooltip="{{ action.label }}">
               <i ng-class="action.class" class="fa fa-fw fa-lg"></i>
@@ -77,6 +79,7 @@
       </tr>
 
       <tr ng-if="$ctrl.rowClickable"
+        ng-if="::!rc.hide(row, $ctrl.extra)"
         ng-class="{ 'row-clickable': $ctrl.rowClickable }"
         ng-repeat="row in $ctrl.data track by row.id"
         ng-click="::$ctrl.onAction({ action: 'row.click', value: row, $event })">
@@ -93,13 +96,13 @@
 
           <span ng-repeat="action in $ctrl.config.actions">
             <span ng-if="action.component"
-                  ng-hide="::action.hide(row)"
+                  ng-if="::!action.hide(row, $ctrl.extra)"
                   uib-tooltip="{{ action.label }}"
                   bind-html-compile="action.component">
             </span>
             <button ng-if="!action.component"
                     class="btn btn-link"
-                    ng-hide="::action.hide(row)"
+                    ng-if="::!action.hide(row, $ctrl.extra)"
                     ng-click="::$ctrl.onAction({ action: action.action, value: row, $event })"
                     uib-tooltip="{{ action.label }}">
               <i ng-class="action.class" class="fa fa-fw fa-lg"></i>
