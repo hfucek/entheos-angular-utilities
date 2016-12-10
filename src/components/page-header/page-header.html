@@ -3,15 +3,15 @@
     <div class="col-lg-8">
       <h1>
         {{ $ctrl.headerTitle }}
-        <button
-          ng-if="$ctrl.helpButton"
-          uib-popover="{{ $ctrl.helpButton.text }}"
-          popover-trigger="'{{ $ctrl.helpButton.trigger || 'mouseenter' }}'"
-          popover-placement="{{ $ctrl.helpButton.placement || 'bottom' }}"
-          type="button"
-          class="btn btn-link">
+        <span
+          ng-if="$ctrl.helpText"
+          ng-class="$ctrl.helpText.class"
+          uib-popover="{{ $ctrl.helpText.text }}"
+          popover-trigger="'{{ $ctrl.helpText.trigger || 'mouseenter' }}'"
+          popover-placement="{{ $ctrl.helpText.placement || 'bottom' }}"
+          class="header-hep-text">
           <i class="fa fa-question-circle fa-lg"></i>
-        </button>
+        </span>
         <a ng-if="$ctrl.addButton"
           class="btn btn-default btn-add-xs"
           ng-click="$ctrl.onAction({ action: $ctrl.addButton.action })">

@@ -1,6 +1,17 @@
 ew-page-header {
   .page-header {
 
+    .header-hep-text {
+      cursor: pointer;
+      font-size: 0.5em;
+      margin-left: 10px;
+
+      i {
+        position: relative;
+        top: -5px;
+      }
+    }
+
     .under-title {
       margin-top: 20px;
     }

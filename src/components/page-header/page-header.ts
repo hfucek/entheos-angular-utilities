@@ -11,7 +11,7 @@ export class PageHeaderComponent implements ng.IComponentOptions {
   constructor() {
     this.bindings = {
       addButton: '<',
-      helpButton: '<',
+      helpText: '<',
       onAction: '&',
       headerTitle: '@',
     };

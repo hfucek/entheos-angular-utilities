@@ -1,6 +1,6 @@
 interface IpageHeaderBindings {
   addButton: any;
-  helpButton: any;
+  helpText: any;
   onAction: Function;
   headerTitle: string;
 }
@@ -14,7 +14,7 @@ export class PageHeaderController implements IpageHeaderController {
    * Bindings
    */
   addButton: any;
-  helpButton: any;
+  helpText: any;
   onAction: Function;
   headerTitle: string;
 
