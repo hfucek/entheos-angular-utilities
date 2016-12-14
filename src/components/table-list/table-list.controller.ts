@@ -44,6 +44,12 @@ export class TableListController implements ITableListController {
     private $parse: ng.IParseService
   ) { }
 
+  handleTdClick(td, $event) {
+    if (td.disableRowClick) {
+      $event.stopPropagation();
+    }
+  }
+
   isFunction(field) {
     return angular.isFunction(field);
   }

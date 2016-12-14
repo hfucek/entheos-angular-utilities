@@ -84,7 +84,10 @@
         ng-repeat="row in $ctrl.data track by row.id"
         ng-click="::$ctrl.onAction({ action: 'row.click', value: row, $event })">
 
-        <td ng-repeat="rc in $ctrl.config.columns track by rc.field" ng-class="rc.class">
+        <td ng-repeat="rc in $ctrl.config.columns track by rc.field"
+          ng-class="rc.class"
+          ng-click="$ctrl.handleTdClick(rc, $event)">
+
           <span ng-if="$ctrl.isFunction(rc.field)" bind-html-compile="rc.field(row)"></span>
           <span ng-if="$ctrl.isString(rc.field)">{{ $ctrl.parseField(row, rc.field) }}</span>
         </td>
