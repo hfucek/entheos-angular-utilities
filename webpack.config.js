@@ -14,9 +14,10 @@ module.exports = {
   },
 
   externals: {
-    angular: 'angular',
-    sweetalert2: 'sweetalert2',
-    lodash: 'lodash',
+    'angular': 'angular',
+    'animate.css': 'animate.css',
+    'sweetalert2': 'sweetalert2',
+    'lodash': 'lodash',
   },
 
   devtool: 'source-map',

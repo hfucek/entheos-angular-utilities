@@ -68,7 +68,7 @@
             </span>
             <button ng-if="!action.component"
                     class="btn btn-link"
-                    ng-if="::!ction.hide(row, $ctrl.extra)"
+                    ng-if="::!action.hide(row, $ctrl.extra)"
                     ng-click="::$ctrl.onAction({ action: action.action, value: row, $event })"
                     uib-tooltip="{{ action.label }}">
               <i ng-class="action.class" class="fa fa-fw fa-lg"></i>

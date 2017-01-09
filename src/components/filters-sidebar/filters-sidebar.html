@@ -11,7 +11,8 @@
     </form>
   </div>
   <div ng-if="$ctrl.isOpen"
-      ng-click="$ctrl.onClose()"
-      class="col-md-8 col-sm-6 col-xs-2 overlay-panel">
+    ng-click="$ctrl.onClose()"
+    class="col-md-8 col-sm-6 col-xs-2 overlay-panel">
   </div>
 </div>
+<div class="overlay-background" ng-if="$ctrl.isOpen"></div>
