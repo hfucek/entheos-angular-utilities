@@ -1,6 +1,6 @@
-<div uib-alert class="alert-danger" ng-if="$ctrl.error && $ctrl.error.validation">
+<div uib-alert class="alert-danger" ng-if="$ctrl.error">
   {{ $ctrl.error.error }} (COD: {{ $ctrl.error.code }}):<br>
-  <ul>
+  <ul ng-if="$ctrl.error.validation">
     <li ng-repeat="errors in $ctrl.error.validation">
       <b>{{ errors.field }}:</b> {{ errors.message }}
     </li>
