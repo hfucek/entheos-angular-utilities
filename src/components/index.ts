@@ -12,6 +12,7 @@ import { panelModule } from './panel';
 import { radioButtonsModule } from './radio-buttons';
 import { sweetDialogModule } from './sweet-dialog';
 import { tableListModule } from './table-list';
+import { validationBoxModule } from './validation-box';
 import { widgetBoxModule } from './widget-box';
 
 export {
@@ -29,5 +30,6 @@ export {
   radioButtonsModule,
   sweetDialogModule,
   tableListModule,
+  validationBoxModule,
   widgetBoxModule,
 };

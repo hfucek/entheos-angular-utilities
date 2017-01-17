@@ -18,6 +18,7 @@ import {
   radioButtonsModule,
   sweetDialogModule,
   tableListModule,
+  validationBoxModule,
   widgetBoxModule,
 } from './components';
 
@@ -38,6 +39,7 @@ export default angular
     radioButtonsModule,
     sweetDialogModule,
     tableListModule,
+    validationBoxModule,
     widgetBoxModule,
   ])
   .name;
