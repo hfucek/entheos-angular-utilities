@@ -1,5 +1,7 @@
 import { MultiCheckboxController} from './multi-checkbox.controller';
 
+import './multi-checkbox.scss';
+
 export class MultiCheckboxComponent implements ng.IComponentOptions {
   public bindings: any;
   public controller: any;
