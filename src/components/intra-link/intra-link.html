@@ -3,4 +3,5 @@
   ng-class="{ 'intralink-icon': $ctrl.icon, 'text-danger': $ctrl.danger }"
   ui-sref="{{ $ctrl.state }}({{ $ctrl.params }})">
   {{ $ctrl.text }}
+  <i class="fa fa-external-link fa-fw" ng-if="$ctrl.icon"></i>
 </a>
