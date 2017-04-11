@@ -13,8 +13,6 @@
       </div>
     </form>
   </div>
-  <div ng-if="$ctrl.isOpen" ng-click="$ctrl.onClose()" class="col-md-8 col-sm-6 col-xs-2 overlay-panel">
-    <p class="hidden-xs">Clicca qui per chiudere il pannello filtri</p>
-  </div>
+  <div ng-if="$ctrl.isOpen" ng-click="$ctrl.onClose()" class="col-md-8 col-sm-6 col-xs-2 overlay-panel" execute-on-esc></div>
 </div>
 <div class="overlay-background" ng-if="$ctrl.isOpen"></div>

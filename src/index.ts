@@ -42,4 +42,20 @@ export default angular
     validationBoxModule,
     widgetBoxModule,
   ])
+  .directive('executeOnEsc', () => {
+    return {
+      restrict: 'A',
+      link: (scope, el, attrs) => {
+        $(document).bind('keyup', (evt) => {
+          if (evt.keyCode === 27) {
+            el.trigger('click', () => {});
+          }
+        });
+
+        scope.$on('$destroy', function() {
+          $(document).unbind('keyup');
+        });
+      }
+    };
+  })
   .name;
