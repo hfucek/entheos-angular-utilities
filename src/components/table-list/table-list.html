@@ -6,7 +6,7 @@
           ng-if="::!config.hide(row, $ctrl.extra)"
           ng-class="config.thClass">
 
-          <i  class="fa fa-filter fa-fw fa-lg"
+          <i  class="fa fa-filter"
               ng-if="config.filter && !config.filter.displayOnly"
               ng-class="{
                 active: $ctrl.filters[config.filter.field].active,
@@ -15,7 +15,7 @@
               uib-tooltip="Filtra per {{ config.label }}"
               ng-click="::$ctrl.openFiltersPanel({ field: config.filter.field })">
           </i>
-          <i  class="fa fa-filter fa-fw fa-lg"
+          <i  class="fa fa-filter"
               ng-if="config.filter && config.filter.displayOnly"
               ng-class="{
                 active: $ctrl.filters[config.filter.field].active,
@@ -23,7 +23,7 @@
               }">
           </i>
           {{ config.label }}
-          <i class="fa fa-fw fa-lg"
+          <i class="fa fa-fw"
              ng-if="config.sort"
              ng-class="{
                 'fa-sort-asc': $ctrl.sort.field === config.sort.field &&
