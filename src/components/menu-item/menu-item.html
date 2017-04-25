@@ -20,7 +20,7 @@
   </a>
 
   <a ng-if="$ctrl.item.state"
-     ui-sref="{{ $ctrl.item.state }}"
+     ui-sref="{{ $ctrl.item.state }}({{ $ctrl.item.params || '{}'}})"
      ui-sref-opts="{{ $ctrl.item.opts }}"
      ng-disabled="disabled">
     <i class="fa fa-{{ $ctrl.item.icon }}"></i> {{ $ctrl.item.title }} <i class="fa fa-caret-down"></i>
