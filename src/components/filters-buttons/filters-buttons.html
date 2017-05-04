@@ -3,11 +3,14 @@
     <i class="fa fa-refresh"></i>
   </button>
   <div class='btn-group'>
-    <button class="btn btn-info btn-add-xs" ng-click="$ctrl.openFiltersPanel()">
+    <button class="btn btn-info btn-add-xs" ng-click="$ctrl.openFiltersPanel()" uib-tooltip="Apri il pannello filtri">
       <i class="fa fa-filter"></i> Pannello filtri
     </button>
-    <button class="btn btn-danger btn-add-xs" ng-disabled="!$ctrl.hasActiveFilters" ng-click="$ctrl.onReset()">
+    <button class="btn btn-danger btn-add-xs" ng-disabled="!$ctrl.hasActiveFilters" ng-click="$ctrl.onReset()" uib-tooltip="Torna ai filtri di default">
       <i class="fa fa-times"></i> Resetta filtri
+    </button>
+    <button ng-if="$ctrl.onHelp" class="btn btn-default btn-add-xs" ng-click="$ctrl.onHelp()" uib-tooltip="Clicca qui per aiuto">
+      <i class="fa fa-help"></i> ?
     </button>
   </div>
 </div>

@@ -10,6 +10,7 @@ export class FiltersButtonsComponent implements ng.IComponentOptions {
   constructor() {
     this.bindings = {
       filters: '<',
+      onHelp: '&?',
       onRefresh: '&',
       onReset: '&',
       openFiltersPanel: '&',

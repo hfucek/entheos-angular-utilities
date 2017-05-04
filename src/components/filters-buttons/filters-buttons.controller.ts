@@ -1,5 +1,6 @@
 interface IfiltersButtonsBindings {
   filters: any;
+  onHelp: Function;
   onRefresh: Function;
   onReset: Function;
   openFiltersPanel: Function;
@@ -15,6 +16,7 @@ export class FiltersButtonsController implements IfiltersButtonsController {
    * Bindings
    */
   filters: any;
+  onHelp: Function;
   onRefresh: Function;
   onReset: Function;
   openFiltersPanel: Function;
