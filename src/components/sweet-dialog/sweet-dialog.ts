@@ -10,7 +10,7 @@ export class SweetDialogComponent implements ng.IComponentOptions {
 
   constructor() {
     this.bindings = {
-      action: '&', // azione da eseguire sull'ok del dialog
+      action: '&?', // azione da eseguire sull'ok del dialog
       config: '=?', // oggetto di configurazione per sweet dialog
       dialogStyle: '@', // delete o confirm. Default delete
       params: '=' // parametri da passare all'azione eseguita

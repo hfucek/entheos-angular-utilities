@@ -100,22 +100,27 @@ export class SweetDialogController implements ISweetDialogController {
 
     swal(this.config.sweetAlert)
       .then(() => {
-        this.action({
-          params: this.params
-        })
-          .then(() => {
-            swal(
-              this.config.successBox.title,
-              this.config.successBox.message,
-              'success');
-          },
-          error => {
-            this.$log.error(error);
-            swal(
-              this.config.errorBox.title,
-              this.config.errorBox.message,
-              'error');
-          });
+
+        // do action only if it's passed
+        if (this.action) {
+          this.action({
+            params: this.params
+          })
+            .then(() => {
+              swal(
+                this.config.successBox.title,
+                this.config.successBox.message,
+                'success');
+            },
+            error => {
+              this.$log.error(error);
+              swal(
+                this.config.errorBox.title,
+                this.config.errorBox.message,
+                'error');
+            });
+        }
+
       }, dismiss => {
         // swal(
         //   this.config.cancelBox.title,
