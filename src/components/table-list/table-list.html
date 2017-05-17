@@ -119,7 +119,7 @@
       <tr class="footer-tr">
         <td ng-repeat="foot in $ctrl.config.footer track by foot.field"
             ng-class="foot.class"
-            colspan="{{ foot.colspan || 1 }}">
+            colspan="{{ $ctrl.isFunction(foot.colspan) ? foot.colspan($ctrl.extra) : foot.colspan || 1 }}">
           <span ng-if="$ctrl.isFunction(foot.field)" bind-html-compile="foot.field($ctrl.data)"></span>
           <span ng-if="$ctrl.isString(foot.field)" bind-html-compile="foot.field"></span>
         </td>
