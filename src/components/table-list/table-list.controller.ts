@@ -44,6 +44,32 @@ export class TableListController implements ITableListController {
     private $parse: ng.IParseService
   ) { }
 
+  $onChange(changes) {
+    if (changes.config) {
+      this.config = angular.copy(this.config);
+    }
+
+    if (changes.data) {
+      this.data = angular.copy(this.data);
+    }
+
+    if (changes.extra) {
+      this.extra = angular.copy(this.extra);
+    }
+
+    if (changes.filters) {
+      this.filters = angular.copy(this.filters);
+    }
+
+    if (changes.rowClickable) {
+      this.rowClickable = angular.copy(this.rowClickable);
+    }
+
+    if (changes.sort) {
+      this.sort = angular.copy(this.sort);
+    }
+  }
+
   handleTdClick(td, $event) {
     if (td.disableRowClick) {
       $event.stopPropagation();
