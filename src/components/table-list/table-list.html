@@ -60,7 +60,7 @@
             ng-if="$ctrl.config.actions.length"
             style="min-width: {{ $ctrl.config.actions.length * 25.98 + 16 + 2 }}px;">
 
-          <span ng-repeat="action in $ctrl.config.actions">
+          <span ng-repeat="action in $ctrl.config.actions track by action.label">
             <span ng-if="action.component"
                   ng-if="::!action.hide(row, $ctrl.extra)"
                   uib-tooltip="{{ action.label }}"
@@ -97,7 +97,7 @@
             ng-if="$ctrl.config.actions.length"
             style="min-width: {{ $ctrl.config.actions.length * 25.98 + 16 + 2 }}px;">
 
-          <span ng-repeat="action in $ctrl.config.actions">
+          <span ng-repeat="action in $ctrl.config.actions track by action.label">
             <span ng-if="action.component"
                   ng-if="::!action.hide(row, $ctrl.extra)"
                   uib-tooltip="{{ action.label }}"

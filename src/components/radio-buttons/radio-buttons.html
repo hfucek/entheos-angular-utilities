@@ -2,7 +2,7 @@
   <label ng-if="$ctrl.label">{{ $ctrl.label }}</label>
   <div class="btn-group" ng-class="{ 'upper-space': !$ctrl.label }">
     <label class="btn"
-          ng-repeat="button in $ctrl.buttons"
+          ng-repeat="button in $ctrl.buttons track by button.label"
           ng-class="button.class || 'btn-default'"
           ng-model="$ctrl.model"
           uib-btn-radio="button.value"

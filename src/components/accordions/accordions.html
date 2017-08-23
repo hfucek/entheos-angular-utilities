@@ -3,7 +3,7 @@
     <div class="col-lg-6">
       <div uib-accordion-group
         class="panel-primary"
-        ng-repeat="accordion in $ctrl.data.left"
+        ng-repeat="accordion in $ctrl.data.left track by accordion.heading"
         is-open="accordion.open">
         <uib-accordion-heading>
           {{ accordion.heading }}
@@ -20,7 +20,7 @@
     <div class="col-lg-6">
       <div uib-accordion-group
         class="panel-primary"
-        ng-repeat="accordion in $ctrl.data.right"
+        ng-repeat="accordion in $ctrl.data.right track by accordion.heading"
         is-open="accordion.open">
         <uib-accordion-heading>
           {{ accordion.heading }}
