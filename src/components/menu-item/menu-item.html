@@ -27,6 +27,6 @@
   </a>
 
   <ul class="dropdown-menu" uib-dropdown-menu role="menu">
-    <ew-menu-item ng-repeat="submenuItem in $ctrl.item.submenu track by item.title" item="submenuItem"></ew-menu-item>
+    <ew-menu-item ng-repeat="submenuItem in $ctrl.item.submenu track by submenuItem.state" item="submenuItem"></ew-menu-item>
   </ul>
 </div>
