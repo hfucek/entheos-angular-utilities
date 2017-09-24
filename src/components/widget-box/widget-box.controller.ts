@@ -1,5 +1,3 @@
-import 'lodash';
-
 interface IwidgetBoxBindings {
   color: string;
   icon: string;
