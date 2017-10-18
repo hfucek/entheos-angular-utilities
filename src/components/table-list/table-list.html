@@ -5,7 +5,7 @@
         <th ng-repeat="config in $ctrl.config.columns track by config.field"
           ng-if="::!config.hide(row, $ctrl.extra)"
           ng-class="config.thClass">
-
+<input ng-if="config.checkbox" type="checkbox" ng-click="::$ctrl.onToogleAll()" />
           <i  class="fa fa-filter"
               ng-if="config.filter && !config.filter.displayOnly"
               ng-class="{
